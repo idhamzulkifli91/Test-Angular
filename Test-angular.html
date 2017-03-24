@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Angular-Tutorial</title>
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  
+</head>
+<body ng-app = "myAngularModule">
+<div ng-controller = "myAngularController">
+<!--input start-->
+User ID : <input ng-model = 'users.user_id' type = "text" value = "1" id = "user_id" readonly="">
+Username : <input ng-model = 'users.username' type = "text" >
+User Occupation : <input ng-model = 'users.user_occ' type = "text">
+<button ng-click="saveEverything()">Add</button>>
+<br/>
+
+<!--Sorting-->
+
+<br/>Sort by :<SELECT ng-model = "sortColumn">
+
+
+	<option value = "user_id">User ID</option>
+	<option value = "username">Username</option>
+	<option value = "user_occ">User Occupation</option>
+</SELECT>
+<br/>
+<!--table view start-->
+<table border="1">
+	<thead>
+		<tr>
+			<th>User ID</th>
+			<th>Username</th>
+			<th>User Occupation</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat = "user in users | orderBy : sortColumn">
+			<td> {{ user.user_id }} </td>
+			<td> {{ user.username }}</td>
+			<td> {{ user.user_occ }}</td>
+		</tr>
+	</tbody>
+</table>
+<script src = "C:\Users\User\Desktop\Test-Angular\Script\Script.js"></script>
+</div>
+</body>
+</html>
